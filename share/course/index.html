@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShodhPeeth - Apni Taiyari, Apni Shartein</title>
+    <meta name="description" content="ShodhPeeth par course dekhein - Apni Taiyari, Apni Shartein">
+
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="ShodhPeeth Course">
+    <meta property="og:description" content="ShodhPeeth par ye course dekhein - Apni Taiyari, Apni Shartein">
+    <meta property="og:image"       content="https://shodhpeeth.in/logo.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height"content="315">
+    <meta property="og:site_name"   content="ShodhPeeth">
+    <meta name="twitter:card"       content="summary_large_image">
+    <meta name="twitter:title"      content="ShodhPeeth Course">
+    <meta name="twitter:image"      content="https://shodhpeeth.in/logo.png">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 28px 24px;
+            max-width: 360px;
+            width: 100%;
+            backdrop-filter: blur(12px);
+            text-align: center;
+        }
+        .thumb {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+        .type-badge {
+            display: inline-block;
+            background: #1299ac;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        h1 { font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .desc { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 22px; line-height: 1.5; }
+        .spinner {
+            width: 36px; height: 36px;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-top-color: #1299ac;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            animation: spin 0.9s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .status { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+        .btn-playstore {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #1299ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-playstore:hover { background: #0e7d8e; }
+        .btn-playstore svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .hidden { display: none; }
+        .footer { margin-top: 16px; font-size: 11px; color: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+<div class="card">
+    <img class="thumb" src="https://shodhpeeth.in/logo.png"
+         alt="ShodhPeeth" onerror="this.style.display='none'">
+
+    <span class="type-badge" id="type-badge">ShodhPeeth</span>
+    <h1>ShodhPeeth</h1>
+    <p class="desc">Apni Taiyari, Apni Shartein</p>
+
+    <div id="loading-section">
+        <div class="spinner"></div>
+        <p class="status" id="status-text">App khol raha hoon...</p>
+    </div>
+
+    <div id="playstore-section" class="hidden">
+        <a class="btn-playstore" id="playstore-btn"
+           href="https://play.google.com/store/apps/details?id=org.indiandevelopers.sodhpeeth&hl=en_IN&gl=US">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.18 23.76c.38.21.82.22 1.21.03l12.6-7.27-2.89-2.89L3.18 23.76zM.5 1.55C.19 1.97.02 2.53.02 3.17v17.66c0 .64.17 1.2.48 1.62l.09.09 9.9-9.9v-.23L.5 1.55zM20.41 10.35l-2.81-1.62-3.16 3.16 3.16 3.16 2.83-1.63c.81-.47.81-1.59-.02-2.07zM4.39.21L16.99 7.48l-2.89 2.89L3.18.24C3.57.05 4.01.05 4.39.21z"/>
+            </svg>
+            Play Store se Download Karein
+        </a>
+    </div>
+
+    <p class="footer">ShodhPeeth &mdash; Apni Taiyari, Apni Shartein</p>
+</div>
+
+<script>
+(function () {
+    var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=org.indiandevelopers.sodhpeeth&hl=en_IN&gl=US";
+    var PACKAGE_NAME   = "org.indiandevelopers.sodhpeeth";
+    var GITHUB_HOST    = "krishanusinghindandevelopers.github.io";
+    var REPO_PATH      = "ShodhPeeth-Share";
+
+    var TYPE_LABELS = {
+        "course": "Course",
+        "video":  "Video",
+        "note":   "Notes",
+        "test":   "Test Series",
+        "live":   "Live Class"
+    };
+
+    // Read URL path & params
+    var path   = window.location.pathname;
+    var params = new URLSearchParams(window.location.search);
+    var id     = params.get("id")  || "";
+    var cid    = params.get("cid") || id;
+
+    // Detect content type from URL path
+    var type = path.indexOf("/share/video") >= 0 ? "video"
+             : path.indexOf("/share/note")  >= 0 ? "note"
+             : path.indexOf("/share/test")  >= 0 ? "test"
+             : path.indexOf("/share/live")  >= 0 ? "live"
+             : "course";
+
+    document.getElementById("type-badge").textContent = TYPE_LABELS[type] || "Content";
+
+    // Build Android intent URI
+    var queryStr  = "?id=" + encodeURIComponent(id) + "&cid=" + encodeURIComponent(cid);
+    var deepPath  = "/" + REPO_PATH + "/share/" + type;
+    var intentUri = "intent://" + GITHUB_HOST + deepPath + queryStr
+                  + "#Intent;scheme=https;package=" + PACKAGE_NAME
+                  + ";S.browser_fallback_url=" + encodeURIComponent(PLAY_STORE_URL)
+                  + ";end";
+
+    function showPlayStore() {
+        document.getElementById("loading-section").classList.add("hidden");
+        document.getElementById("playstore-section").classList.remove("hidden");
+    }
+
+    function setStatus(msg) {
+        document.getElementById("status-text").textContent = msg;
+    }
+
+    function isAndroid() {
+        return /android/i.test(navigator.userAgent);
+    }
+
+    if (!isAndroid()) {
+        // Not Android — show Play Store button directly
+        setStatus("ShodhPeeth Android app par available hai");
+        showPlayStore();
+        return;
+    }
+
+    // Android: try to open app via intent URI
+    var appOpened = false;
+
+    // visibilitychange = page gaya background = app khula
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            appOpened = true;
+        }
+    });
+
+    // Trigger intent
+    window.location.href = intentUri;
+
+    // After 2.5s: agar page abhi bhi visible hai to app install nahi tha
+    setTimeout(function () {
+        if (!appOpened && !document.hidden) {
+            setStatus("App install nahi hai, Play Store pe le ja raha hoon...");
+            showPlayStore();
+            // Auto-redirect to Play Store after 1s
+            setTimeout(function () {
+                if (!appOpened) {
+                    window.location.replace(PLAY_STORE_URL);
+                }
+            }, 1000);
+        }
+    }, 2500);
+}());
+</script>
+</body>
+</html>
