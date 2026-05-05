@@ -10,13 +10,13 @@
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="ShodhPeeth">
     <meta property="og:description" content="Apni Taiyari, Apni Shartein">
-    <meta property="og:image"       content="https://krishanusinghindiandevelopers.github.io/ShodhPeeth-Share/logo.jpeg">
+    <meta property="og:image"       content="https://app.shodhpeeth.in/logo.jpeg">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="315">
     <meta property="og:site_name"   content="ShodhPeeth">
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="ShodhPeeth">
-    <meta name="twitter:image"       content="https://krishanusinghindiandevelopers.github.io/ShodhPeeth-Share/logo.jpeg">
+    <meta name="twitter:image"       content="https://app.shodhpeeth.in/logo.jpeg">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -107,13 +107,13 @@
 </head>
 <body>
 <div class="card">
-    <img class="thumb" src="https://krishanusinghindiandevelopers.github.io/ShodhPeeth-Share/logo.jpeg"
+    <img class="thumb" src="https://app.shodhpeeth.in/logo.jpeg"
          alt="ShodhPeeth" onerror="this.style.display='none'">
 
     <span class="type-badge" id="type-badge">ShodhPeeth</span>
     <div class="title-row">
         <img class="title-logo"
-             src="https://krishanusinghindiandevelopers.github.io/ShodhPeeth-Share/logo.jpeg"
+             src="https://app.shodhpeeth.in/logo.jpeg"
              alt="ShodhPeeth logo"
              onerror="this.style.display='none'">
         <h1 id="content-title">ShodhPeeth</h1>
@@ -142,8 +142,8 @@
 (function () {
     var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=org.indiandevelopers.sodhpeeth&hl=en_IN&gl=US";
     var PACKAGE_NAME   = "org.indiandevelopers.sodhpeeth";
-    var GITHUB_HOST    = "krishanusinghindandevelopers.github.io";
-    var REPO_PATH      = "ShodhPeeth-Share";
+    var GITHUB_HOST    = "app.shodhpeeth.in";
+    var REPO_PATH      = "";
 
     var TYPE_LABELS = {
         "course": "Course",
@@ -167,7 +167,7 @@
     document.getElementById("type-badge").textContent = TYPE_LABELS[type] || "Content";
 
     var queryStr  = "?id=" + encodeURIComponent(id) + "&cid=" + encodeURIComponent(cid);
-    var deepPath  = "/" + REPO_PATH + "/share/" + type;
+    var deepPath  = "/share/" + type;
     var intentUri = "intent://" + GITHUB_HOST + deepPath + queryStr
                   + "#Intent;scheme=https;package=" + PACKAGE_NAME
                   + ";S.browser_fallback_url=" + encodeURIComponent(PLAY_STORE_URL)
